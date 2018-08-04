@@ -322,6 +322,8 @@
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
     <Content Include="Views\Index.cshtml" />
     <Content Include="Views\Master.cshtml" />
+    <Content Include="Views\Post.cshtml" />
+    <Content Include="Views\CategoryLandingPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
