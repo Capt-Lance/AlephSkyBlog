@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/mdb.min.css" />
     <link rel="stylesheet" href="/css/style.min.css" />
@@ -38,12 +38,16 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Networking & Infrastructure</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Software Development</a>
-                    </li>
+                    
+                    @{
+                    	var categories = Model.Content.Site().Children("categoryLandingPage")
+                    						.Where(x => x.IsVisible());
+                    }
+                    @foreach(var category in categories){
+                    	<li class="nav-item">
+                    		<a class="nav-link" href="@category.Url">@category.Name</a>
+                    	</li>
+                    }
 
                 </ul>
                 <!-- Links -->

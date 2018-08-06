@@ -1,5 +1,46 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Post>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = null;
+    Layout = "Master.cshtml";
 }
+
+
+<!-- Container -->
+<div class="container">
+    <secton class="mt-4">
+        <!--row-->
+        <div class="row">
+            <!--Column-->
+            <div class="col-md-12 mb-4">
+                <!--Feature image-->
+                <div class="card mb-4 wow fadeIn">
+                    <img src="" class="img-fluid" />
+                </div>
+                <!-- Feature image -->
+                <!-- Card (probably won't use this card)-->
+                <div class="card mb-4 wow fadeIn">
+                    <!-- Card content-->
+                    <div class="card-body text-center">
+                        <p class="h5 my-4">@Umbraco.Field("postTitle")</p>
+                        @Umbraco.Field("postDescription")
+                    </div>
+                    <!-- Card content-->
+
+                </div>
+                <!-- Card (probably won't use this card)-->
+                <!-- Main content card-->
+                <div class="card mb-4 wow fadeIn">
+                    <!-- card content-->
+                    <div class="card-body">
+                        @Umbraco.Field("postText")
+                    </div>
+                    <!-- card content-->
+                </div>
+                <!-- Main content card-->
+            </div>
+            <!--Column-->
+        </div>
+        <!--row-->
+    </secton>
+</div>
+<!-- Container -->

@@ -1,5 +1,66 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.CategoryLandingPage>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = null;
+	Layout = "Master.cshtml";
 }
+
+<div class="container">
+    <section class="card gradient-custom wow fadeIn">
+        <div class="card-body text-center py-5 px-5 my-5">
+            <h1 class="mb-4">
+                <strong>@Umbraco.Field("pageName")</strong>
+            </h1>
+            <p>
+                <strong>Some description</strong>
+            </p>
+        </div>
+    </section>
+    <section class="pt-5">
+        <!--Heading-->
+        <div class="wow fadeIn">
+            <h2 class="h1 text-center mb-5">Secondary Title</h2>
+            <p class="text-center">Some supporting text that will totally leave you speechless and wowed!!!</p>
+        </div>
+        <!--Heading-->
+        <!--Rows-->
+        
+        @{
+        	var posts = Model.Content.Children("post")
+        						.Where(x => x.IsVisible());
+        }
+        <ul>
+        	@foreach(var post in posts){
+            	<div class="row wow fadeIn">
+                    <!--Image Column-->
+                    <div class="col-lg-5 col-xl-4 mb-4">
+                        <!--Image-->
+                        <div class="view overlay rounded z-depth-1-half">
+                            <div class="view overlay">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cXTThxoywNQ" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Image-->
+                    </div>
+                    <!--Image Column-->
+                    <!--Description Column-->
+                    <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
+                        <h3 class="mb-3 font-weight-bold dark-grey-text">
+                            <strong>@post.Name</strong>
+                        </h3>
+                        @post.GetPropertyValue("postDescription")
+                        <a href="@post.Url" class="btn btn-primary btn-md">Go to post!</a>
+                    </div>
+                    <!--Description Column-->
+                </div>
+                <hr class="mb-5" />
+        	}
+
+
+        
+        <!--Rows-->
+
+
+    </section>
+</div>
